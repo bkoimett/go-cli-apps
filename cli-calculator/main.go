@@ -23,19 +23,19 @@ func main() {
 
 	switch op {
 	case "add":
-		calculator.AddTwoNumbers(num1, num2)
+		fmt.Println(calculator.AddTwoNumbers(num1, num2))
 	case "sub":
-		calculator.SubtractTwoNumbers(num1, num2)
+		fmt.Println(calculator.SubtractTwoNumbers(num1, num2))
 	case "div":
 		if num1 > num2 {
-			calculator.DivideTwoNumbers(num1, num2)
+			fmt.Println(calculator.DivideTwoNumbers(num1, num2))
 		} else {
 			fmt.Println("📃Invert numbers: second number is higher than second")
 		}
 	case "multi":
-		calculator.MultiplyTwoNumbers(num1, num2)
+		fmt.Println(calculator.MultiplyTwoNumbers(num1, num2))
 	case "mod":
-		calculator.ModulusOfNumber(num1, num2)
+		fmt.Println(calculator.ModulusOfNumber(num1, num2))
 	default:
 		fmt.Println("⚠️ Illegal operation, use: <add> <sub> <div> <multi> <mod>")
 	}
