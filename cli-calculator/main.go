@@ -16,13 +16,13 @@ func main() {
 	op := os.Args[1]
 	num1, _ := strconv.Atoi(os.Args[2])
 	num2, _ := strconv.Atoi(os.Args[3])
-	
+
 	fmt.Println(op, num1, num2)
 
 	switch op {
 	case "add":
 		addTwoNumbers(num1, num2)
-	case "sub": 
+	case "sub":
 		subtractTwoNumbers(num1, num2)
 	case "div":
 		if num1 > num2 {
