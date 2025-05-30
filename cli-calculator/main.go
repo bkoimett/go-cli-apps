@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	"github.com/bkoimett/go-cli-apps/cli-calculator/calculator"
 )
 
 func main() {
@@ -21,7 +23,7 @@ func main() {
 
 	switch op {
 	case "add":
-		addTwoNumbers(num1, num2)
+		calculator.AddTwoNumbers(num1, num2)
 	case "sub":
 		subtractTwoNumbers(num1, num2)
 	case "div":
