@@ -5,6 +5,11 @@ import (
 	"os"
 )
 
+type Task struct {
+	Description string
+	Done bool
+}
+
 func main() {
 	if len(os.Args) < 3 && os.Args[1] != "list" {
 		fmt.Println("Caution: kindly use <operand> <taskid>/<task>")
