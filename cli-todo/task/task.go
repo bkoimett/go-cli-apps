@@ -8,7 +8,7 @@ import (
 
 type Task struct {
 	Description string `json:"description"`
-	Done		bool	`json:"done"`
+	Done        bool   `json:"done"`
 }
 
 const dataFile = "todo.json"
@@ -21,7 +21,7 @@ func LoadTasks() ([]Task, error) {
 		}
 		return nil, err
 	}
-	
+
 	var tasks []Task
 	err = json.Unmarshal(file, &tasks)
 	return tasks, err
