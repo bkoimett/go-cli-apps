@@ -26,3 +26,13 @@ func loadTasks() ([]Task, error) {
 	err = json.Unmarshal(file, &tasks)
 	return tasks, err
 }
+
+// write tasks back to the json file
+func Save(task []Task) error {
+	data, err := json.Marshal(task, "", "")
+	if err != nil {
+		return err
+	}
+
+	return os.WriteFile(dataFile, data, 0644) // owner, u
+}
