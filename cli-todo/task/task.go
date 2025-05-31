@@ -56,3 +56,10 @@ func List(task []Task) {
 func Add(task []Task, description string) []Task {
 	return append(task, Task{Description: description, Done: false})
 }
+
+// MarkDone - marks a task as completed
+func MarkDone(task []Task, index int) {
+	if index >= 0 && index < len(task) {
+		task[index].Done = true
+	}
+}
