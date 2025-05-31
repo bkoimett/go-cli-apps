@@ -13,7 +13,7 @@ type Task struct {
 
 const dataFile = "todo.json"
 
-func loadTasks() ([]Task, error) {
+func LoadTasks() ([]Task, error) {
 	file, err := os.ReadFile(dataFile)
 	if err != nil {
 		if os.IsNotExist(err) {
