@@ -36,3 +36,18 @@ func Save(task []Task) error {
 
 	return os.WriteFile(dataFile, data, 0644) // owner, u
 }
+
+func List(task []Task) {
+	if len(task) == 0 {
+		fmt.Println("No tasks")
+		return
+	}
+
+	for i, t := range task {
+		status := "[ ]"
+		if t.Done {
+			status = "[X]"
+		}
+		fmt.Println("%d. %s %s\n", 1+i, status, t.Description)
+	}
+}
