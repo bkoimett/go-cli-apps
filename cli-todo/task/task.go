@@ -29,7 +29,7 @@ func LoadTasks() ([]Task, error) {
 
 // write tasks back to the json file
 func Save(task []Task) error {
-	data, err := json.Marshal(task, "", "")
+	data, err := json.MarshalIndent(task, "", "")
 	if err != nil {
 		return err
 	}
