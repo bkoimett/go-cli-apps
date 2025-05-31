@@ -51,3 +51,8 @@ func List(task []Task) {
 		fmt.Println("%d. %s %s\n", 1+i, status, t.Description)
 	}
 }
+
+// Add appends new task
+func Add(task []Task, description string) []Task {
+	return append(task, Task{Description: description, Done: false})
+}
