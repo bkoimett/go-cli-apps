@@ -48,7 +48,7 @@ func List(task []Task) {
 		if t.Done {
 			status = "[X]"
 		}
-		fmt.Println("%d. %s %s\n", 1+i, status, t.Description)
+		fmt.Printf("%d. %s %s\n", 1+i, status, t.Description)
 	}
 }
 
