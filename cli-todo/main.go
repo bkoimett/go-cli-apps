@@ -3,32 +3,51 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
+
+	"github.com/bkoimett/go-cli-apps/cli-todo/task"
 )
 
-type Task struct {
-	Description string
-	Done bool
-}
-
 func main() {
-	if len(os.Args) < 3 && os.Args[1] != "list" {
-		fmt.Println("Caution: kindly use <operand> <taskid>/<task>")
-		fmt.Println("⚠️")
+	args := os.Args[1:]
+	if len(args) < 1 {
+		fmt.Println("Usage: todo <add|list|done> [task description|task number]")
 		return
 	}
-	// create file in here but try to cretae it with a command line prompt
-	op := os.Args[1]
-	task := os.Args[2]
 
-	switch op {
-	case "add": 
-		// write to list
+	tasks, err := task.LoadTasks()
+	if err != nil {
+		fmt.Println("Error loading tasks: ", err)
+		return
+	}
+
+	switch args[0] {
+	case "list": 
+		task.List(tasks)
 	case "delete":
-		// delete from file
-	case "list":
-		// show list - no need for task params
+		if len(args) < 2 {
+			fmt.Println("Please provide a task descrition.")
+			return
+		}
+		description := args[1]
+		tasks = task.Add(tasks, description)
+		task.Save(tasks)
+		fmt.Println("Task added.")
+	case "done":
+		if len(args) < 2 {
+			fmt.Println("Please provide a task number.")
+			return
+		}
+		num, err := strconv.Atoi(args[1])
+		if err != nil || num < 1 || num > len(tasks) {
+			fmt.Println("invalid task number.")
+			return
+		}
+		task.MarkDone(tasks, num-1)
+		task.Save(tasks)
+		fmt.Println("Task marked as done")	
 	default:
-		fmt.Println()
+		fmt.Println("Unknown command.", args[0])
 	}
 
 	// try to log errors as well with time andstatus code
