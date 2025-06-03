@@ -1,3 +1,5 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 # 📝 Go CLI To-Do App
 
 A simple command-line to-do list application written in Go. Tasks are stored in a JSON file for persistence.
@@ -82,4 +84,4 @@ go build -o todo
 ```
 
 ## 🪪 License
-MIT - free to use, modify and distribute
+This project is licensed under the [MIT License](LICENSE).
