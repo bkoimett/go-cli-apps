@@ -5,13 +5,13 @@ import (
 	"math/rand"
 )
 
-func main(){
+func main() {
 	guess := 0
 	fmt.Println("Guess a number between 1-100")
 	fmt.Scan(&guess)
 
-	randomNum := rand.Intn(100) 
-	
+	randomNum := rand.Intn(100)
+
 	fmt.Println("The random number is :")
 	fmt.Println(randomNum)
 	fmt.Println()
