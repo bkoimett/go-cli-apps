@@ -11,7 +11,7 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) < 1 {
-		fmt.Println("Usage: todo <add|list|done> [task description|task number]")
+		fmt.Println("Usage: <go run .> <add|list|done> [task description|task number]")
 		return
 	}
 
@@ -24,7 +24,7 @@ func main() {
 	switch args[0] {
 	case "list": 
 		task.List(tasks)
-	case "delete":
+	case "add":
 		if len(args) < 2 {
 			fmt.Println("Please provide a task descrition.")
 			return
